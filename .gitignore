@@ -1,0 +1,27 @@
+# ===============================
+# Node / React
+# ===============================
+/frontend/node_modules
+/frontend/dist
+/frontend/.env
+/frontend/.DS_Store
+
+# ===============================
+# Backend / Java / Spring Boot
+# ===============================
+/backend/target
+/backend/.classpath
+/backend/.project
+/backend/.settings
+/backend/.idea
+/backend/*.iml
+/backend/*.log
+
+# Ignorar propiedades sensibles
+/backend/src/main/resources/application.properties
+
+# ===============================
+# Sistema operativo
+# ===============================
+.DS_Store
+Thumbs.db

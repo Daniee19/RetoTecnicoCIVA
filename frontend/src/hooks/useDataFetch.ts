@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import { dataFetch } from '../helpers/dataFetch';
-export const useDataFetch = (url: string, autoFetch = true) => {
+export const useDataFetch = <T>(url: string, autoFetch = true) => {
 
     const [estado, setEstado] = useState<{
-        data: null;
-        isLoading: boolean;
+        data: T | null;
         errors: string | null;
     }>({
         data: null,
-        isLoading: true,
         errors: null
     });
 
@@ -24,10 +22,10 @@ export const useDataFetch = (url: string, autoFetch = true) => {
                 setMostrarLogin(true);
             }
 
-            setEstado({ data: data, isLoading: false, errors: null });
+            setEstado({ data: data, errors: null });
         } catch (error: unknown) {
             const mensaje = error instanceof Error ? error.message : String(error);
-            setEstado({ data: null, isLoading: false, errors: mensaje });
+            setEstado({ data: null, errors: mensaje });
         }
     }
 
@@ -37,7 +35,6 @@ export const useDataFetch = (url: string, autoFetch = true) => {
 
     return {
         data: estado.data,
-        isLoading: estado.isLoading,
         errors: estado.errors,
         mostrarLogin: mostrarLogin,
         fetchNow: realizarFetch

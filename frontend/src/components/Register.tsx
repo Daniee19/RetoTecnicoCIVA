@@ -34,22 +34,29 @@ export const Register = ({ onRegister }: { onRegister: () => void }) => {
 
     return (
         <>
-            <h2>Registrate</h2>
-            <form onSubmit={handleSubmit}>
+            <h2 className="text-xl font-bold text-center mb-4">Regístrate</h2>
+            <form onSubmit={handleSubmit} className="space-y-4 flex flex-col ">
                 <input
+                    className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-600"
                     value={nombreUsuario}
                     onChange={(e) => setNombreUsuario(e.target.value)}
                     placeholder="Nombre de usuario"
                 />
                 <input
                     type="password"
+                    className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-600"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Contraseña"
                 />
-                <button type="submit">Registrarme</button>
-                {error && <div style={{ color: "red" }}>{error}</div>}
-                {success && <div style={{ color: "green" }}>{success}</div>}
+                <button
+                    type="submit"
+                    className="w-full py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium"
+                >
+                    Registrarme
+                </button>
+                {error && <div className="text-red-600 text-sm">{error}</div>}
+                {success && <div className="text-green-600 text-sm">{success}</div>}
             </form>
         </>
 
